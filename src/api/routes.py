@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 
+
 api = Blueprint('api', __name__)
 
 
@@ -16,3 +17,10 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/login', method=["POST"])
+def handle_login():
+    auth=request.authorization
+    if not auth or not auth.username or not auth.password:
+        return make_response("USER not found", 401, {'www-Athenticate':"Basic realm='Login required'"})
+    user = User.query.filter_by(name=auth.username).first()

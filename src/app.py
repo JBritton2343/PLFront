@@ -12,6 +12,7 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 
+
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
