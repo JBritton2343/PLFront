@@ -9,6 +9,22 @@ export const Signup = (props) => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
+  const checkPass=()=>{
+    if (typeof input["password"] !== "undefined" && typeof input["confirm_password"] !== "undefined") {
+
+          
+
+      if (input["password"] != input["confirm_password"]) {
+  
+        isValid = false;
+  
+        errors["password"] = "Passwords don't match.";
+  
+      }
+  
+  }
+  }
+
   return (
     
     <div>
@@ -42,13 +58,24 @@ export const Signup = (props) => {
           </div>
         </div>
         <div className="mb-3">
-          <label for="password" className="form-label">
+          <label for="password1" className="form-label">
             Password
           </label>
           <input
             type="password"
             className="form-control"
             id="password"
+            onChange={(e) => setPass(e.target.value)}
+          ></input>
+        </div>
+        <div>
+        <label for="password2" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="password2"
             onChange={(e) => setPass(e.target.value)}
           ></input>
         </div>
@@ -62,8 +89,8 @@ export const Signup = (props) => {
             view password
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
+        <button type="submit" className="btn btn-primary" onSubmit={(checkPass)}>                
+         Submit
         </button>
       </form>
     </div>

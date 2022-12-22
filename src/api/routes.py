@@ -42,7 +42,7 @@ def handle():
 
 @api.route('/user', methods=['GET', "POST"])
 @token_required
-def handle_hello():
+def handle_hello(current_user, user_id):
     data = request.get_json()
 
     hashed_password = generate_password_hash(data['password'], method='sha256')
@@ -104,8 +104,7 @@ def create_token():
     access_token = create_access_token(identify=user.id)
     return jsonify({"token": access_token, "user_id": user.id})
 
-@api.route("/login")
-@token_required
+@api.route("/login", methods=['POST'])
 def login():
     auth=request.authorization
     if not auth or not auth.username or not auth.password:
