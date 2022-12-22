@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
-import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useContext } from "react";
+//import PropTypes from "prop-types";
+import { Link ,useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const Login = (props) => {
-  const { store, actions } = useContext(context);
+export const Login = (props) => {
+  const { store, actions } = useContext(Context);
   const params = useParams();
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
   return (
+    
     <div>
       <form>
         <div className="mb-3">
@@ -54,6 +54,7 @@ const Login = (props) => {
         </button>
       </form>
     </div>
+    
   );
 };
-export default Login;
+
