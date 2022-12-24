@@ -1,17 +1,19 @@
 import React from "react";
 import bootstrap from "bootstrap";
 
-function card() {
+function Card({img, title, text}) {
 
     return(
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="..." />
+            <img src={img ? img : "https://via.placeholder.com/468"}
+        className="card-img-top" />
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{title ? title : "Filter titles"}</h5>
+                <p class="card-text">{text ? text : "placeholder"}</p>
                 <a href="../cart" class="btn btn-primary">Add to Cart</a>
             </div>
 </div>
     )
     
 }
+export default Card

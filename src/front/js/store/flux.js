@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   let BACKEND_URL = process.env.BACKEND_URL;
   return {
     store: {
+      power: [],
       message: null,
       demo: [
         {
@@ -21,11 +22,25 @@ const getState = ({ getStore, getActions, setStore }) => {
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
-
+      
+      get_power: () => {
+        const opts={
+          headers:{
+            'mode': 'no-cors'
+          }
+        }
+        fetch(
+          (`https://3001-jbritton2343-plfront-gy85ddko12s.ws-us80.gitpod.io/api/Power`, opts)
+        )
+          .then((resp) => resp.json())
+          .then((data) => {
+            setStore({ power: data });
+          });
+      },
       getMessage: async () => {
         try {
           // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "/api/hello");
+          const resp = await fetch(process.env.BACKEND_URL + "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us80.gitpod.io/power");
           const data = await resp.json();
           setStore({ message: data.message });
           // don't forget to return something, that is how the async resolves
