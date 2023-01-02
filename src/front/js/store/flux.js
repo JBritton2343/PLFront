@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         }
         fetch(
-          (`https://3001-jbritton2343-plfront-gy85ddko12s.ws-us80.gitpod.io/api/Power`, opts)
+          ('/api/Power', opts)
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getMessage: async () => {
         try {
           // fetching data from the backend
-          const resp = await fetch(process.env.BACKEND_URL + "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us80.gitpod.io/power");
+          const resp = await fetch(process.env.BACKEND_URL + "/api/power");
           const data = await resp.json();
           setStore({ message: data.message });
           // don't forget to return something, that is how the async resolves

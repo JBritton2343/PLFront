@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint, make_response
-from api.models import db, User, Products
+from api.models import db, User, Power, CPUFan, CaseFans, Motherboards, Mouse, GPUS, Keyboards, Cases, Processors, RAM, Storage
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 import uuid
@@ -121,7 +121,7 @@ def get_power():
 @api.route('/CaseFans', methods=['GET'])
 def get_cfans():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/case_fan?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -129,7 +129,7 @@ def get_cfans():
 @api.route('/RAM', methods=['GET'])
 def get_ram():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/ram?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -137,7 +137,7 @@ def get_ram():
 @api.route('/Mouse', methods=['GET'])
 def get_mouse():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/mouse?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -145,7 +145,7 @@ def get_mouse():
 @api.route('/Keyboards', methods=['GET'])
 def get_keyboards():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/keyboard?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -153,7 +153,7 @@ def get_keyboards():
 @api.route('/CPUFan', methods=['GET'])
 def get_cpufans():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/cpu_fan?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -161,7 +161,7 @@ def get_cpufans():
 @api.route('/Cases', methods=['GET'])
 def get_cases():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/case?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -169,7 +169,7 @@ def get_cases():
 @api.route('/Storage', methods=['GET'])
 def get_storage():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/storage?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -177,7 +177,7 @@ def get_storage():
 @api.route('/Processors', methods=['GET'])
 def get_processors():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/processor?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -185,7 +185,7 @@ def get_processors():
 @api.route('/GPUs', methods=['GET'])
 def get_gpus():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/gpu?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)
@@ -193,7 +193,7 @@ def get_gpus():
 @api.route('/Motherboards', methods=['GET'])
 def get_motherboards():
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
+        'https://computer-components-api.p.rapidapi.com/motherboard?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
     return jsonify(resp)    

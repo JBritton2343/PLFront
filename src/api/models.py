@@ -48,7 +48,7 @@ class CPUFan(db.Model):
     __tablename__ = "fans"
     id = db.Column(db.Integer, primary_key=True)
 
-class cases(db.Model):
+class Cases(db.Model):
     __tablename__ = "cases"
     id = db.Column(db.Integer, primary_key=True)
 
