@@ -12,7 +12,7 @@ const Power = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.power.map((power, idx) => {
         return (
-          <div className="col my-2" key={idx}>
+          <div className="col my-2" key={ idx }>
             <Card
               img={power.img}
               title={power.brand}

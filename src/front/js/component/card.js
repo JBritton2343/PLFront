@@ -4,13 +4,13 @@ import bootstrap from "bootstrap";
 function Card({img, title, text}) {
 
     return(
-        <div class="card" style="width: 18rem;">
+        <div className="card" style={{"width": "18rem", "color": "black"}}>
             <img src={img ? img : "https://via.placeholder.com/468"}
         className="card-img-top" />
-            <div class="card-body">
-                <h5 class="card-title">{title ? title : "Filter titles"}</h5>
-                <p class="card-text">{text ? text : "placeholder"}</p>
-                <a href="../cart" class="btn btn-primary">Add to Cart</a>
+            <div className="card-body">
+                <h5 className="card-title">{title ? title : "Filter titles"}</h5>
+                <p className="card-text">{text ? text : "placeholder"}</p>
+                <a href="../cart" className="btn btn-primary">Add to Cart</a>
             </div>
 </div>
     )

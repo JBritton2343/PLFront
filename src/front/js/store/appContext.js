@@ -22,27 +22,8 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			const axios = require("axios");
-
-				const options = {
-				method: "GET",
-				url: "https://computer-components-api.p.rapidapi.com/power_supply",
-				params: { limit: "10", offset: "0" },
-				headers: {
-					"X-RapidAPI-Key": "41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684",
-					"X-RapidAPI-Host": "computer-components-api.p.rapidapi.com",
-				},
-				};
-
-				axios
-				.request(options)
-				.then(function (response) {
-					console.log(response.data);
-				})
-				.catch(function (error) {
-					console.error(error);
-				});
-			state.actions.getMessage(); // <---- calling this function from the flux.js actions
+			
+			//state.actions.getMessage(); // <---- calling this function from the flux.js actions
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
