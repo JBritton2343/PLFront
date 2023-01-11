@@ -10,7 +10,14 @@ import { Footer } from "./component/footer";
 import { Login } from "./component/login";
 import { Signup } from "./component/signup";
 import { Power } from "./component/products/power"
-
+import { Memory } from "./component/products/memory"
+import { Cases } from "./component/products/cases";
+import { Keyboards } from "./component/products/keyboards";
+import { Mice } from "./component/products/mice";
+import { Motherboards } from "./component/products/motherboards";
+import { Processors } from "./component/products/processors";
+import { Storage } from "./component/products/storage";
+import { Videocards } from "./component/products/videocards";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -29,6 +36,14 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Power />} path="/power" />
+            <Route element={<Memory />} path="/memory" />
+            <Route element={<Cases />} path="/cases" />
+            <Route element={<Keyboards />} path="/keyboards" />
+            <Route element={<Mice />} path="/mice" />
+            <Route element={<Motherboards />} path="/motherboards" />
+            <Route element={<Processors />} path="/processors" />
+            <Route element={<Storage />} path="/storage" />
+            <Route element={<Videocards />} path="/videocards" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
