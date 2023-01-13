@@ -3,3 +3,28 @@
 */
 body{background-color: black;
     color: gold;}
+
+.my_shop{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: gold;
+    font-family: cursive;
+    cursor: pointer;
+}
+.cart{
+    cursor: pointer;
+}
+
+.cart span:nth-child(1){
+    font-size: 2rem;
+    color: white;
+}
+.cart span:nth-child(2){
+    padding: 0 4px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    position: relative;
+    top: -15px;
+}

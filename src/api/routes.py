@@ -117,7 +117,6 @@ def get_power():
       ).json()
     
     return jsonify(resp)
-
 @api.route('/CaseFans', methods=['GET'])
 def get_cfans():
     resp = requests.get(

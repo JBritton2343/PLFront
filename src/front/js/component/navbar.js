@@ -103,9 +103,17 @@ export const Navbar = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            
+            <button className="btn btn-outline-success me-4" type="submit">
               Search
             </button>
+            <span  className = "my_shop">My Shopping</span>
+            <div className ="cart">
+              <span> 
+                <i className="fas fa-cart-plus"></i>
+              </span>
+              <span>0</span>
+            </div>
           </form>
         </div>
       </div>

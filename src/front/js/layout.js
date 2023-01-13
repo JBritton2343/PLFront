@@ -18,6 +18,8 @@ import { Motherboards } from "./component/products/motherboards";
 import { Processors } from "./component/products/processors";
 import { Storage } from "./component/products/storage";
 import { Videocards } from "./component/products/videocards";
+import { CartProvider } from "react-use-cart";
+import Cart from "./component/cart"
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -27,7 +29,9 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
+      <CartProvider>
         <ScrollToTop>
+        
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
@@ -44,10 +48,13 @@ const Layout = () => {
             <Route element={<Processors />} path="/processors" />
             <Route element={<Storage />} path="/storage" />
             <Route element={<Videocards />} path="/videocards" />
+            <Route element={<Cart />} path="/cart" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
+          
         </ScrollToTop>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );
