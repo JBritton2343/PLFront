@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import { useCart } from "react-use-cart";
+import logo from "/workspace/PLFront/src/front/img/computer-time-high-resolution-logo-color-on-transparent-background.png"
 
 export const Navbar = () => {
   const{totalItems}=useCart();
 	return (
     <nav className="navbar navbar-expand-lg bg-dark text-white">
       <div className="container-fluid">
+        <img src={logo} className="logo w-25 p-3"></img>
         <a className="navbar-brand" href="#"></a>
         <button
           className="navbar-toggler"

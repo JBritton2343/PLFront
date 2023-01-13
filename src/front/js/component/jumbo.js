@@ -1,14 +1,14 @@
 import React from "react";
-import computer from "/workspace/PLFront/src/front/img/refurbished-hardware-components.webp";
+import computer from "/workspace/PLFront/src/front/img/components.jpeg";
 
 const Jumbotron = () => {
     return (
       <div
         className="p-5 text-center bg-image rounded-3"
         style={{
-          backgroundImage: {computer},
+          backgroundImage: "url('components.jpeg')",
           backgroundSize: "cover",
-          height: "300px",
+          height: "600px",
           width: "100%",
         }}
       ></div>
