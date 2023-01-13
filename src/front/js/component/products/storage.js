@@ -12,11 +12,14 @@ const Storage = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.storage.map((storage, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2">
             <Card
-              img={storage.img}
-              title={storage.brand}
-              text={storage.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );

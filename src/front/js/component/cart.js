@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useCart } from "react-use-cart";
 
+
 const Cart = () => {
   const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem, cartTotal } =
     useCart();

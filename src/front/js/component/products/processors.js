@@ -10,13 +10,16 @@ const Processors = () => {
   console.log(store.processors)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.processors.map((processors, idx) => {
+      {store.processors.map((item, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2">
             <Card
-              img={processors.img}
-              title={processors.brand}
-              text={processors.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );

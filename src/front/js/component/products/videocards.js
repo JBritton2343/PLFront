@@ -12,11 +12,14 @@ const Videocards = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.videocards.map((videocards, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2">
             <Card
-              img={videocards.img}
-              title={videocards.brand}
-              text={videocards.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );

@@ -1,7 +1,9 @@
 import React from "react";
-
+import { Link } from "react-router-dom"
+import { useCart } from "react-use-cart";
 
 export const Navbar = () => {
+  const{totalItems}=useCart();
 	return (
     <nav className="navbar navbar-expand-lg bg-dark text-white">
       <div className="container-fluid">
@@ -46,47 +48,47 @@ export const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="../products/cases">
+                  <a className="dropdown-item" href="/cases">
                     Cases
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/power">
+                  <a className="dropdown-item" href="/power">
                     Power Supplies
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/keyboards">
+                  <a className="dropdown-item" href="/keyboards">
                     Keyboards
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/memory">
+                  <a className="dropdown-item" href="/memory">
                     Memory
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/motherboards">
+                  <a className="dropdown-item" href="/motherboards">
                     Motherboards
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/mice">
+                  <a className="dropdown-item" href="/mice">
                     Mice
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/processors">
+                  <a className="dropdown-item" href="/processors">
                     CPUs
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/storage">
+                  <a className="dropdown-item" href="/storage">
                     Storage Devices
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="../products/videocards">
+                  <a className="dropdown-item" href="/videocards">
                     Video Cards
                   </a>
                 </li>
@@ -107,13 +109,12 @@ export const Navbar = () => {
             <button className="btn btn-outline-success me-4" type="submit">
               Search
             </button>
-            <span  className = "my_shop">My Shopping</span>
-            <div className ="cart">
+            <Link to={'/cart'}><div className ="cart">
               <span> 
                 <i className="fas fa-cart-plus"></i>
               </span>
-              <span>0</span>
-            </div>
+              <span>{totalItems}</span>
+            </div></Link>
           </form>
         </div>
       </div>

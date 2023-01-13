@@ -10,13 +10,16 @@ const Keyboards = () => {
   console.log(store.keyboards)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.keyboards.map((keyboards, idx) => {
+      {store.keyboards.map((item, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2" >
             <Card
-              img={keyboards.img}
-              title={keyboards.brand}
-              text={keyboards.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );

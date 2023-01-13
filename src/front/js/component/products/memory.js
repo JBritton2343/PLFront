@@ -10,13 +10,16 @@ const Memory = () => {
   console.log(store.RAM)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.RAM.map((RAM, idx) => {
+      {store.RAM.map((item, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2" >
             <Card
-              img={RAM.img}
-              title={RAM.brand}
-              text={RAM.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );

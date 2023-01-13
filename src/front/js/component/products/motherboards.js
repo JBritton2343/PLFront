@@ -10,13 +10,16 @@ const Motherboards = () => {
   console.log(store.motherboards)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.motherboards.map((motherboards, idx) => {
+      {store.motherboards.map((item, idx) => {
         return (
-          <div className="col my-2" key={ idx }>
+          <div className="col my-2">
             <Card
-              img={motherboards.img}
-              title={motherboards.brand}
-              text={motherboards.title}
+              key={idx}
+              img={item.img}
+              title={item.brand}
+              text={item.title}
+              price={item.price}
+              item={item}
             />
           </div>
         );
