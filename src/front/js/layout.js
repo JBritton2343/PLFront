@@ -20,6 +20,7 @@ import { Storage } from "./component/products/storage";
 import { Videocards } from "./component/products/videocards";
 import { CartProvider } from "react-use-cart";
 import Cart from "./component/cart"
+import { Jumbotron } from "./component/jumbo";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -31,8 +32,9 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
       <CartProvider>
         <ScrollToTop>
-        
+          
           <Navbar />
+          <Jumbotron />
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
@@ -49,6 +51,7 @@ const Layout = () => {
             <Route element={<Storage />} path="/storage" />
             <Route element={<Videocards />} path="/videocards" />
             <Route element={<Cart />} path="/cart" />
+            
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
