@@ -9,7 +9,7 @@ const Mice = () => {
   }, []);
   console.log(store.mice)
   return (
-    <div className="row row-cols-5 text-light mx-5 my-1">
+    <div className="row row-cols-5 text-light mx-5 my-1 d-flex">
       {store.mice.map((item, idx) => {
         return (
           <div className="col my-2">

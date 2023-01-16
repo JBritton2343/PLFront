@@ -72,8 +72,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
       get_mice: () => {
+        
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Mouse"
+          process.env.BACKEND_URL + "/api/Mouse"
         )
           .then((resp) => resp.json())
           .then((data) => {
