@@ -16,7 +16,7 @@ const { addItem } = useCart();
                 <h5 className="card-title">{props.title}</h5>
                 <p className="card-text justify-content-center">{props.text}</p>
                 <p className="card-price position-absolute" style={{"fontWeight": "bolder", "fontsize": "20px", "color": "green", "bottom": "0", "right": "0"}}>${props.price}</p>
-                <button className="btn btn-primary position-absolute" style={{"bottom": "0", "left": "0"}} onClick={()=>addItem(props.item)}>Add to Cart</button> 
+                <button className="btn btn-primary position-absolute mb-2" style={{"bottom": "0", "left": "0"}} onClick={()=>addItem(props.item)}>Add to Cart</button> 
             </div>
             
 </div>
