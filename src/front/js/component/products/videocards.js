@@ -10,7 +10,7 @@ const Videocards = () => {
   console.log(store.videocards)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.videocards.map((videocards, idx) => {
+      {store.videocards.map((item, idx) => {
         return (
           <div className="col my-2">
             <Card

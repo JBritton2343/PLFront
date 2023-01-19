@@ -33,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       get_power: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Power"
+          process.env.BACKEND_URL+"/api/Power"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_ram: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/RAM"
+          process.env.BACKEND_URL+"/api/RAM"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_cases: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Cases"
+          process.env.BACKEND_URL + "/api/Cases"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_keyboards: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Keyboards"
+          process.env.BACKEND_URL + "/api//Keyboards"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -84,7 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_motherboards: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Motherboards"
+          process.env.BACKEND_URL + "/api/Motherboards"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -94,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_processors: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Processors"
+          process.env.BACKEND_URL + "/api//Processors"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -104,7 +104,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_storage: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/Storage"
+          process.env.BACKEND_URL + "/api/Storage"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -114,7 +114,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_videocards: () => {
         fetch(
-          "https://3001-jbritton2343-plfront-gy85ddko12s.ws-us82.gitpod.io/api/GPUs"
+          process.env.BACKEND_URL + "/api/GPUs"
         )
           .then((resp) => resp.json())
           .then((data) => {

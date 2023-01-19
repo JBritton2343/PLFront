@@ -1,7 +1,4 @@
-/*
-    home.css: This website contains selectors only used in home.css
-
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.tile {  position: relative;  text-align: center;  color: white; width: 20rem; height: 20rem; padding: 4pix, 0, 0, 4pix}
+.tileImg:hover {  filter: brightness(100%);}
+.tileImg {  border-radius: 1rem;  filter: brightness(70%);  width: 100%; height: 75%}
+.centered { font-size: larger;  font-family: monospace;  text-shadow: 2px 2px black; text-decoration: none;}

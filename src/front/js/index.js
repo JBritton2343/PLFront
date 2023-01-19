@@ -2,7 +2,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CartProvider } from "react-use-cart";
-import Cart from "./component/cart";
 import { Cases } from "./component/products/cases";
 import { Keyboards } from "./component/products/keyboards";
 import { Memory } from "./component/products/memory";
