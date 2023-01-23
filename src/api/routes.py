@@ -195,4 +195,130 @@ def get_motherboards():
         'https://computer-components-api.p.rapidapi.com/motherboard?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'         
       ).json()
     
-    return jsonify(resp)    
+    return jsonify(resp) 
+
+@api.route('/power/<string:id>', methods=['GET', 'PUT'])
+def get_single_power(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/power_supply?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    power_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            power_info = resp[i]
+
+    return jsonify(power_info)   
+
+@api.route('/cases/<string:id>', methods=['GET', 'PUT'])
+def get_single_case(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/case?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    case_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            case_info = resp[i]
+
+    return jsonify(case_info)
+
+@api.route('/casefans/<string:id>', methods=['GET', 'PUT'])
+def get_single_casefan(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/case_fan?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    casefan_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            casefan_info = resp[i]
+
+    return jsonify(casefan_info)
+
+@api.route('/keyboards/<string:id>', methods=['GET', 'PUT'])
+def get_single_keyboard(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/keyboard?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    keyboard_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            keyboard_info = resp[i]
+
+    return jsonify(keyboard_info)         
+
+@api.route('/ram/<string:id>', methods=['GET', 'PUT'])
+def get_single_ram(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/ram?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    ram_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            ram_info = resp[i]
+
+    return jsonify(ram_info)
+
+@api.route('/mice/<string:id>', methods=['GET', 'PUT'])
+def get_single_mouse(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/mouse?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    mouse_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            mouse_info = resp[i]
+
+    return jsonify(mouse_info)
+
+@api.route('/motherboards/<string:id>', methods=['GET', 'PUT'])
+def get_single_motherboard(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/mohterboard?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    motherboard_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            motherboard_info = resp[i]
+
+    return jsonify(motherboard_info)
+
+@api.route('/processors/<string:id>', methods=['GET', 'PUT'])
+def get_single_processor(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/cpu?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    processor_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            processor_info = resp[i]
+
+    return jsonify(processor_info)
+
+@api.route('/storage/<string:id>', methods=['GET', 'PUT'])
+def get_single_storage(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/storage?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    storage_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            storage_info = resp[i]
+
+    return jsonify(storage_info)      

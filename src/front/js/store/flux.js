@@ -5,12 +5,25 @@ const getState = ({ getStore, getActions, setStore }) => {
       power: [],
       RAM: [],
       cases: [],
+      casefans: [],
+      cpufans: [],
       keyboards: [],
       mice: [],
       motherboards: [],
       processors: [],
       storage: [],
       videocards: [],
+      singlePower: [],
+      singleKeyboard: [],
+      singleCase: [],
+      singleCasefan: [],
+      singleCPUFan: [],
+      singleMemory: [],
+      singleMotherboard: [],
+      singleMouse: [],
+      singleProcessor: [],
+      singleStorage: [],
+      singleVideoCard: [],
       message: null,
       demo: [
         {
@@ -59,6 +72,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => {
             console.log(data);
             setStore({ cases: data });
+          });
+      },
+      get_case_fans: () => {
+        fetch(
+          process.env.BACKEND_URL + "/api/CaseFans"
+        )
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+            setStore({ casefans: data });
+          });
+      },
+      get_cpu_fans: () => {
+        fetch(
+          process.env.BACKEND_URL + "/api/CPUFan"
+        )
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+            setStore({ cpufans: data });
           });
       },
       get_keyboards: () => {
@@ -122,7 +155,160 @@ const getState = ({ getStore, getActions, setStore }) => {
             setStore({ videocards: data });
           });
       },
-
+      get_single_power: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/power/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singlePower: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_case: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/cases/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleCase: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_casefan: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/casefans/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleCasefan: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_cpu_fan: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/cpufans/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleCPUFan: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_keyboard: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/keyboards/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleKeyboard: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_memory: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/memory/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleMemory: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_motherboard: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/motherboards/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleSingle: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_mouse: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/mice/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleMouse: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_processor: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/processors/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleProcessor: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_storage: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/storage/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleStorage: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      get_single_videocard: async (id) => {
+        const resp = await fetch(
+          `${process.env.BACKEND_URL}/api/videocards/${id}`
+        );
+        const store = getStore();
+        try {
+          const data = await resp.json();
+          console.log(data);
+          setStore({ singleVideoCard: data });
+          console.log(store);
+        } catch (error) {
+          console.log(error);
+        }
+      },
       login: (email) => {
         let user = getStore().userAccounts.find((user) => user.email == email);
         setStore({ user: user });

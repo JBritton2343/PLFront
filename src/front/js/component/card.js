@@ -8,10 +8,10 @@ const { addItem } = useCart();
         <CartProvider>
         <div className="container mt-3 mb-2 pe-3">
         <div className="row d-flex">
-        <div class="col-sm-12 col-lg-6 flex-fill">
+        <div className="col-sm-12 col-lg-6 flex-fill">
         <div className="card" style={{"width": "20rem", "height": "25rem", "color": "black"}}>
             <img src={props.img}
-        className="card-img-top" style={{"width": "125px", "height": "125px", "aspect-ration": "9/2", "alignItems": "center", "margin": "auto"}}/>
+        className="card-img-top" style={{"width": "125px", "height": "125px", "aspectRation": "9/2", "alignItems": "center", "margin": "auto"}}/>
             <div className="card-body">
                 <h5 className="card-title">{props.title}</h5>
                 <p className="card-text justify-content-center">{props.text}</p>

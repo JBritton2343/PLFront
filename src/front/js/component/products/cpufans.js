@@ -1,20 +1,24 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext";
 import Card from "../card";
-import { Link } from "react-router-dom";
-const Power = () => {
+
+const CPUFans = () => {
+  
   const { store, actions } = useContext(Context);
+  // const [cart, setCart] = useState([]);
+  
   useEffect(() => {
-    actions.get_power();
-    console.log(store);
+    actions.get_cpu_fans();
+    console.log(store.cases);
   }, []);
-  console.log(store.power)
+  
+  
+
   return (
+    
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.power.map((item, idx) => {
+      {store.cpufans.map((item, idx) => {
         return (
-          <Link to={`/power/${item.id}`}>
-          <div className="col my-2">
             <Card
               key={idx}
               img={item.img}
@@ -23,11 +27,9 @@ const Power = () => {
               price={item.price}
               item={item}
             />
-          </div>
-          </Link>
         );
       })}
     </div>
   );
 };
-export { Power };
+export { CPUFans };
