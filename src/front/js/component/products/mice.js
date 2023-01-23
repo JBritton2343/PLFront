@@ -12,18 +12,19 @@ const Mice = () => {
     <div className="row row-cols-5 text-light mx-5 my-1 d-flex">
       {store.mice.map((item, idx) => {
         return (
+          <Link to={`/power/${item.id}`}>
           <div className="col my-2">
             <Card
-              
               key={idx}
               img={item.img}
               title={item.brand}
               text={item.title}
               price={item.price}
               item={item}
-            
             />
           </div>
+          </Link>
+          
         );
       })}
     </div>

@@ -12,7 +12,8 @@ const Keyboards = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.keyboards.map((item, idx) => {
         return (
-          <div className="col my-2" >
+          <Link to={`/power/${item.id}`}>
+          <div className="col my-2">
             <Card
               key={idx}
               img={item.img}
@@ -22,6 +23,7 @@ const Keyboards = () => {
               item={item}
             />
           </div>
+          </Link>
         );
       })}
     </div>

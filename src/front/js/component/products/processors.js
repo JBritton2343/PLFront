@@ -12,6 +12,7 @@ const Processors = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.processors.map((item, idx) => {
         return (
+          <Link to={`/power/${item.id}`}>
           <div className="col my-2">
             <Card
               key={idx}
@@ -22,6 +23,7 @@ const Processors = () => {
               item={item}
             />
           </div>
+          </Link>
         );
       })}
     </div>

@@ -19,6 +19,8 @@ const CPUFans = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.cpufans.map((item, idx) => {
         return (
+          <Link to={`/power/${item.id}`}>
+          <div className="col my-2">
             <Card
               key={idx}
               img={item.img}
@@ -27,6 +29,8 @@ const CPUFans = () => {
               price={item.price}
               item={item}
             />
+          </div>
+          </Link>
         );
       })}
     </div>
