@@ -55,6 +55,16 @@ export const Navbar = () => {
                   </a>
                 </li>
                 <li>
+                  <a className="dropdown-item" href="/casefans">
+                    Case Fans
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/cpufans">
+                    CPU Fans
+                  </a>
+                </li>
+                <li>
                   <a className="dropdown-item" href="/power">
                     Power Supplies
                   </a>
