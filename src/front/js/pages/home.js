@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import casepic from "/workspace/PLFront/src/front/img/casepic.jpg";
+import casefanpic from "/workspace/PLFront/src/front/img/casefanpic.jpg";
+import cpufanpic from "/workspace/PLFront/src/front/img/cpufanpic.jpeg";
 import cpupic from "/workspace/PLFront/src/front/img/cpupic.jpg";
 import keyboardpic from "/workspace/PLFront/src/front/img/keyboardpic.jpg";
 import mbpic from "/workspace/PLFront/src/front/img/mbpic.jpg";
