@@ -321,4 +321,17 @@ def get_single_storage(id):
             "id"] == id: 
             storage_info = resp[i]
 
-    return jsonify(storage_info)      
+    return jsonify(storage_info)
+@api.route('/cpufans/<string:id>', methods=['GET', 'PUT'])
+def get_single_cpu_fan(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/cpu_fan?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    cpu_fan_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            cpu_fan_info = resp[i]
+
+    return jsonify(cpu_fan_info)      

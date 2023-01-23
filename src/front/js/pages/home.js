@@ -10,6 +10,8 @@ import powersupppic from "/workspace/PLFront/src/front/img/powersupppic.jpg";
 import rampic from "/workspace/PLFront/src/front/img/rampic.jpg";
 import ssdandhddpic from "/workspace/PLFront/src/front/img/ssdandhddpic.jpg";
 import videocardpic from "/workspace/PLFront/src/front/img/videocardpic.jpg";
+import casefanpic from "/workspace/PLFront/src/front/img/casefanpic.jpg";
+import cpufanpic from "/workspace/PLFront/src/front/img/cpufanpic.jpeg";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -19,12 +21,28 @@ export const Home = () => {
     <>
     <div className="Container mt-3">
     <div className="row row-cols-4 text-light mx-5 my-1 m-auto justify-content-center">   
-      <div className="col">
+    <div className="col">
      <Link to={'/cases'}>      
      <div className="tile">        
      <img          src={casepic}        
        className="tileImg"        />        
        <div className="centered">Cases
+       </div>      
+       </div>   
+        </Link>
+        <Link to={'/casefans'}>      
+     <div className="tile">        
+     <img          src={casefanpic}        
+       className="tileImg"        />        
+       <div className="centered">Case Fans
+       </div>      
+       </div>   
+        </Link>
+        <Link to={'/cpufans'}>      
+     <div className="tile">        
+     <img          src={cpufanpic}        
+       className="tileImg"        />        
+       <div className="centered">CPU Fans
        </div>      
        </div>   
         </Link>
