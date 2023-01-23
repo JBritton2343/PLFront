@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 import { SingleCard } from "../component/singleCard";
 
+
 const SingleVideoCard = (idx) => {
     const { id } =  useParams();
     const { store, actions } = useContext(Context);

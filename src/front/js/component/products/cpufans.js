@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../store/appContext";
 import Card from "../card";
-
+import { Link } from "react-router-dom";
 const CPUFans = () => {
   
   const { store, actions } = useContext(Context);
@@ -19,7 +19,7 @@ const CPUFans = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.cpufans.map((item, idx) => {
         return (
-          <Link to={`/power/${item.id}`}>
+          <Link to={`/cpufans/${item.id}`}>
           <div className="col my-2">
             <Card
               key={idx}

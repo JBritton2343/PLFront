@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import Card from "../card";
+import { Link } from "react-router-dom";
 const Processors = () => {
   const { store, actions } = useContext(Context);
   useEffect(() => {
@@ -12,7 +13,7 @@ const Processors = () => {
     <div className="row row-cols-5 text-light mx-5 my-1">
       {store.processors.map((item, idx) => {
         return (
-          <Link to={`/power/${item.id}`}>
+          <Link to={`/processors/${item.id}`}>
           <div className="col my-2">
             <Card
               key={idx}
