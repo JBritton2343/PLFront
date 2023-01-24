@@ -96,7 +96,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_keyboards: () => {
         fetch(
-          process.env.BACKEND_URL + "/api//Keyboards"
+          process.env.BACKEND_URL + "/api/Keyboards"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -127,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_processors: () => {
         fetch(
-          process.env.BACKEND_URL + "/api//Processors"
+          process.env.BACKEND_URL + "/api/Processors"
         )
           .then((resp) => resp.json())
           .then((data) => {
@@ -297,7 +297,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_single_videocard: async (id) => {
         const resp = await fetch(
-          `${process.env.BACKEND_URL}/api/videocards/${id}`
+          `${process.env.BACKEND_URL}/api/gpus/${id}`
         );
         const store = getStore();
         try {

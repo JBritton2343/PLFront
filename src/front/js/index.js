@@ -12,6 +12,7 @@ import { Processors } from "./component/products/processors";
 import { Storage } from "./component/products/storage";
 import { Videocards } from "./component/products/videocards";
 
+
 //include your index.scss file into the bundle
 import "../styles/index.css";
 
@@ -23,9 +24,11 @@ ReactDOM.render(<Layout />, document.querySelector("#app"));
 
 export const Index = () => {
     const { store, actions } = useContext(Context);
-  
+    
+
     return (
       <>
+        
         <CartProvider>
           <Cases></Cases>
           <Keyboards></Keyboards>
@@ -37,6 +40,7 @@ export const Index = () => {
           <Storage></Storage>
           <Videocards></Videocards>
         </CartProvider>
+        
       </>
     );
   };

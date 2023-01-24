@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useCart } from "react-use-cart";
-
+import StripeContainer from "./stripecont";
 
 const Cart = () => {
   const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem, cartTotal } =
@@ -9,9 +9,11 @@ const Cart = () => {
   if (isEmpty) return <p>Your cart is empty</p>;
 
   return (
+    
     <section className="py-4 container">
       <div className="row justify-content-center">
         <div className="col-12">
+        
           <h1>Cart ({totalUniqueItems})</h1>
           <table className="table table-light table-hover m-0 ">
             <tbody>
@@ -53,12 +55,15 @@ const Cart = () => {
               })}
             </tbody>
           </table>
+         
         </div>
         <div className="col-auto ms-auto">
           <h2>Total price: {Math.round(cartTotal)}</h2>
         </div>
       </div>
+      
     </section>
+    
   );
 };
 export default Cart;

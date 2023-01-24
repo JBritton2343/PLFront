@@ -209,7 +209,21 @@ def get_single_power(id):
             "id"] == id: 
             power_info = resp[i]
 
-    return jsonify(power_info)   
+    return jsonify(power_info)
+
+@api.route('/gpus/<string:id>', methods=['GET', 'PUT'])
+def get_single_videocard(id):
+    resp = requests.get(
+        'https://computer-components-api.p.rapidapi.com/gpu?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+    ).json()
+
+    gpu_info={}
+    for i in range(len(resp)):
+        if resp[i][
+            "id"] == id: 
+            gpu_info = resp[i]
+
+    return jsonify(gpu_info)      
 
 @api.route('/cases/<string:id>', methods=['GET', 'PUT'])
 def get_single_case(id):
@@ -298,7 +312,7 @@ def get_single_motherboard(id):
 @api.route('/processors/<string:id>', methods=['GET', 'PUT'])
 def get_single_processor(id):
     resp = requests.get(
-        'https://computer-components-api.p.rapidapi.com/cpu?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
+        'https://computer-components-api.p.rapidapi.com/processor?rapidapi-key=41cb48f8aamsh58505b2951fb31fp11fea2jsn0df23ab93684&limit=10&offset=0'
     ).json()
 
     processor_info={}

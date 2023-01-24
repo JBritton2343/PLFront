@@ -12,8 +12,7 @@ import powersupppic from "/workspace/PLFront/src/front/img/powersupppic.jpg";
 import rampic from "/workspace/PLFront/src/front/img/rampic.jpg";
 import ssdandhddpic from "/workspace/PLFront/src/front/img/ssdandhddpic.jpg";
 import videocardpic from "/workspace/PLFront/src/front/img/videocardpic.jpg";
-import casefanpic from "/workspace/PLFront/src/front/img/casefanpic.jpg";
-import cpufanpic from "/workspace/PLFront/src/front/img/cpufanpic.jpeg";
+
 import { Link } from "react-router-dom";
 
 export const Home = () => {

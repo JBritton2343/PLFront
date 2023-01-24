@@ -11,7 +11,7 @@ const Storage = () => {
   console.log(store.storage)
   return (
     <div className="row row-cols-5 text-light mx-5 my-1">
-      {store.storage.map((storage, idx) => {
+      {store.storage.map((item, idx) => {
         return (
           <Link to={`/storage/${item.id}`}>
           <div className="col my-2">
