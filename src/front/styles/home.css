@@ -2,3 +2,50 @@
 .tileImg:hover {  filter: brightness(100%);}
 .tileImg {  border-radius: 1rem;  filter: brightness(70%);  width: 100%; height: 75%}
 .centered { font-size: larger;  font-family: monospace;  text-shadow: 2px 2px black; text-decoration: none;}
+.payment-form .card-details{
+	padding: 25px 25px 15px;
+}
+.payment-form .card-details label{
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #79818A;
+	text-transform: uppercase;
+}
+.payment-form .card-details button{
+	margin-top: 0.6em;
+	padding:12px 0;
+	font-weight: 600;
+}
+.payment-form .date-separator{
+ 	margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+@media (min-width: 576px) {
+	.payment-form .title {
+		font-size: 1.2em;
+	}
+	.payment-form .products {
+		padding: 40px;
+  	}
+	.payment-form .products .item-name {
+		font-size: 1em;
+	}
+	.payment-form .products .price {
+    	font-size: 1em;
+	}
+  	.payment-form .card-details {
+    	padding: 40px 40px 30px;
+    }
+  	.payment-form .card-details button {
+    	margin-top: 2em;
+    }
+}
+
+
+
+
+
+
+

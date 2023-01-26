@@ -73,6 +73,8 @@
 		]
 	},
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.2.1",
+		"@fortawesome/react-fontawesome": "^0.2.0",
 		"@stripe/react-stripe-js": "^1.16.4",
 		"@stripe/stripe-js": "^1.46.0",
 		"axios": "^1.2.3",
@@ -81,6 +83,7 @@
 		"browserify-zlib": "^0.2.0",
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
+		"font-awesome": "^4.7.0",
 		"fs": "^0.0.1-security",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
@@ -94,6 +97,6 @@
 		"request": "^2.88.2",
 		"stripe": "^11.7.0",
 		"stripe.js": "^0.0.1",
-		"update": "^0.4.2"
+		"update": "^0.7.4"
 	}
 }
