@@ -95,7 +95,10 @@ const Cart = () => {
               </div>
               <div className="form-group col-sm-8">
                 <label for="card-number">Card Number</label>
-                <input id="card-number" type="text" className="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1" onChange={(e)=> setCard(e.target.value) }>{numCheck()}</input>
+                <div className="d-flex">
+                <div className="card-type h2 me-2 mb-3">{numCheck()}</div>
+                <input id="card-number" type="text" className="form-control h-25" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1" onChange={(e)=> setCard(e.target.value) }/>
+                </div>
               </div>
               <div className="form-group col-sm-4">
                 <label for="cvc">CVC</label>

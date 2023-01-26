@@ -30,6 +30,7 @@ body{background-color: black;
 }
 .payment-form .card-details{
 	padding: 25px 25px 15px;
+	outline: none;
 }
 .payment-form .card-details label{
 	font-size: 12px;
