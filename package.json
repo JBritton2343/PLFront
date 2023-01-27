@@ -89,6 +89,7 @@
 		"react": "^16.8.4",
 		"react-bootstrap": "^2.7.0",
 		"react-dom": "^16.8.4",
+		"react-hook-form": "^7.42.1",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^6.3.0",
 		"react-stripe-elements": "^6.1.2",
@@ -97,6 +98,6 @@
 		"request": "^2.88.2",
 		"stripe": "^11.7.0",
 		"stripe.js": "^0.0.1",
-		"update": "^0.7.4"
+		"update": "^0.4.2"
 	}
 }

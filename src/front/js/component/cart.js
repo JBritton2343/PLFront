@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useCart } from "react-use-cart";
 import "../../styles/home.css";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCcAmex, faCcVisa, faCcMastercard, faCcDiscover } from "@fortawesome/free-brands-svg-icons";
 const Cart = () => {
@@ -105,7 +106,7 @@ const Cart = () => {
                 <input id="cvc" type="text" className="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1"/>
               </div>
               <div className="form-group col-sm-12">
-                <button type="button" className="btn btn-primary btn-block">Proceed</button>
+               <Link to={"/payaccepted"}> <button type="button" className="btn btn-primary btn-block">Proceed</button></Link>
               </div>
             </div>
           </div> 

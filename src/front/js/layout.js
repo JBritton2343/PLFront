@@ -21,6 +21,7 @@ import { Processors } from "./component/products/processors";
 import { Storage } from "./component/products/storage";
 import { Videocards } from "./component/products/videocards";
 import { CartProvider } from "react-use-cart";
+import  PayAccpeted  from "./pages/payAccepted";
 import Cart from "./component/cart"
 import { Jumbotron } from "./component/jumbo";
 import { SinglePower } from "./pages/singlePower";
@@ -77,6 +78,7 @@ const Layout = () => {
             <Route element={<SingleStorage/>} path="/storage/:id" />
             <Route element={<SingleMemory/>} path="/memory/:id" />
             <Route element={<SingleVideoCard/>} path="/videocards/:id" />
+            <Route element={<PayAccpeted/>} path="/payaccepted" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />

@@ -24,6 +24,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       singleProcessor: [],
       singleStorage: [],
       singleVideoCard: [],
+      signup: [],
+      login: [],
       message: null,
       demo: [
         {
@@ -42,6 +44,61 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
+      },
+      signup: (data) => {
+        const store = getStore();
+        fetch(`https://3001-jbritton2343-plfront-gy85ddko12s.ws-us84.gitpod.io/api/signup`, {
+          method: "POST",
+          headers: { "Content-type": "application/json", "mode": "no-cors" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => {
+            if (res.status === 409)
+              throw new Error(
+                "The email address already exists. Please login to your account to continue."
+              );
+            return res.json();
+          })
+          .then((data) => {
+            console.log("data ", data);
+            getActions().setAlert({
+              type: "success",
+              msg: data.msg,
+              show: true,
+            });
+            return true;
+          })
+          .catch((err) => err);
+      },
+      login: async (email, password) => {
+        console.log("email: " + email, "password: " + password);
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        };
+        // fetch(BACKEND_URL + "/api/login", opts)
+        //   .then((resp) => resp.json())
+        //   .then((data) => console.log(data));
+        try {
+          const resp = await fetch(BACKEND_URL + "/api/login", opts);
+          if (resp.status !== 200) {
+            alert("An error has occurred");
+            return false;
+          }
+          const data = await resp.json();
+          console.log("this came from the backend", data);
+          sessionStorage.setItem("token", data.access_token); //Access token needed here
+          setStore({ token: data.access_token });
+          return true;
+        } catch (error) {
+          console.error("There has be an error logging in", error);
+        }
       },
 
       get_power: () => {
@@ -309,11 +366,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(error);
         }
       },
-      login: (email) => {
-        let user = getStore().userAccounts.find((user) => user.email == email);
-        setStore({ user: user });
-        return true;
-      },
+      
     },
   };
 };

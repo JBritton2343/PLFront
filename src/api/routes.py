@@ -42,23 +42,10 @@ def handle():
     return jsonify(response_body), 200
 
 @api.route('/user', methods=['GET', "POST"])
-@token_required
-def handle_hello(current_user, user_id):
-    data = request.get_json()
-
-    hashed_password = generate_password_hash(data['password'], method='sha256')
-
-    user = User(public_id=str(uuid.uuid4()), name=data['name'], password=hashed_password)
-    db.session.add(user)
-    db.session.commit()
-    
-
-
-    response_body = {
-        "msg": "Welcome back" +user.name+ "are you ready to shop again?"
-    }
-
-    return jsonify(response_body), 200
+def handle_hello():
+    users=User.query.all()    
+    users_array=[user.serialize() for user in users]    
+    return jsonify(users_array), 200
 
 
 @api.route('/signup', methods=['POST'])
@@ -66,49 +53,55 @@ def create_user():
     data = request.get_json()
 
     hashed_password = generate_password_hash(data['password'], method='sha256')
-
-    new_user = User(public_id=str(uuid.uuid4()), name=data['name'], password=hashed_password, email=data['email'])
+    check_user = User.query.filter_by(email=data["email"]).first()
+    if check_user is not None:
+        return jsonify({
+            'msg': 'The email address already exists. Please login to your account to continue.'
+        }),409
+    new_user = User( name=data['name'], password=hashed_password, email=data['email'])
     db.session.add(new_user)
     db.session.commit()
-    return jsonify({'message' : 'newuser created'})
+    payload = {
+        'msg': 'Your account has been registered successfully.',
+        'user': new_user.serialize()
+    }
+    return jsonify(payload), 200
 
-@api.route('/user/<public_id>', methods=['DELETE'])
-@token_required
-def delete_user(current_user, public_id):
-    user=User.query.filter_by(public_id).first()
+# @api.route('/user/<public_id>', methods=['DELETE'])
+# @token_required
+# def delete_user(current_user, public_id):
+#     user=User.query.filter_by(public_id).first()
 
-    if not user:
-        return jsonify({'message' : 'No user found!'})
+#     if not user:
+#         return jsonify({'message' : 'No user found!'})
     
-    db.session.delete(user)
-    db.session.commit()
+#     db.session.delete(user)
+#     db.session.commit()
 
-    return jsonify({'message' : 'user has been deleted'})
+#     return jsonify({'message' : 'user has been deleted'})
 @api.route("/token", methods=["POST"])
 def create_token():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
 
-    user = User.query.filter_by(username=username, password=password).first()
+    user = User.query.filter_by(email=email, password=password).first()
     if user is None:
         return jsonify({"msg": "Bad username or password"}), 402
 
     access_token = create_access_token(identify=user.id)
     return jsonify({"token": access_token, "user_id": user.id})
 
-@api.route("/login", methods=['POST'])
+@api.route("/login", methods=["POST"])
 def login():
-    auth=request.authorization
-    if not auth or not auth.username or not auth.password:
-        return make_response("user not found", 401, {'www-Authenticate' : "Basic realm='Login required!'"})
-    user = User.query.filter_by(name=auth.username).first()
-    if not user:
-        return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic Realm="Login required!"'})
-    if check_password_hash(user.password, auth.password):
-        token=jwt.encode({'public_id' : user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = 30)})
-
-        return jsonify({'token' : token.decode('UTF-8')})
-    return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic Realm="Login required!"'})
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    # if email != "test" or password != "test":
+    #     return jsonify({"msg": "Bad email or password"}), 401
+    new_user = User.query.filter_by(email=email, password=password).first()
+    if not new_user :
+        return jsonify({"msg": "Bad email or password"}), 401
+    access_token = create_access_token(identity=user.id, expires_delta=datetime.timedelta(minutes=60))
+    return jsonify(access_token=access_token)
 
 @api.route('/Power', methods=['GET'])
 def get_power():

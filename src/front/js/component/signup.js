@@ -1,100 +1,128 @@
-import React, { useState, useContext } from "react";
-//import PropTypes from "prop-types";
-import { Link ,useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
-
-export const Signup = (props) => {
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+export const Signup = () => {
+  const navigate = useNavigate();
   const { store, actions } = useContext(Context);
-  const params = useParams();
-  const [user, setUser] = useState("");
-  const [pass, setPass] = useState("");
-
-  const checkPass=()=>{
-    if (typeof input["password"] !== "undefined" && typeof input["confirm_password"] !== "undefined") {
-
-          
-
-      if (input["password"] != input["confirm_password"]) {
-  
-        isValid = false;
-  
-        errors["password"] = "Passwords don't match.";
-  
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      let signup = await actions.signup(data);
+      console.log(signup);
+      if (typeof signup !== "object") {
+        navigate("/login");
+      } else {
+        actions.setAlert({
+          type: "danger",
+          show: true,
+        });
       }
-  
-  }
-  }
-
+    } catch (e) {
+      alert(e.message);
+    }
+    return false;
+  };
+  const onChange = (data) => {
+    let aux = { ...userData };
+    aux[data.name] = data.value;
+    setUserData(aux);
+  };
   return (
-    
-    <div>
-      <form>
-      <div className="mb-3">
-    
-          <label for="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            aria-describedby="name"
-            onChange={(e) => setUser(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3">
-          <label for="email" className="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            aria-describedby="emailHelp"
-            onChange={(e) => setUser(e.target.value)}
-          ></input>
-          <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
+    <div className="container-fluid">
+      <div className="row d-flex main-content text-center w-50 rounded shadow-lg my-5 mx-auto p-4">
+        <div className="col-md-8 col-xs-12 col-sm-12 login-form mx-auto bg-white rounded">
+          <div className="container-fluid">
+            <div className="row justify-content-center">
+              <h1 className="font-weight-light">Sign up</h1>
+            </div>
+            <div className="row justify-content-center">
+              <form
+                onChange={(e) => onChange(e.target)}
+                onSubmit={handleSubmit(onSubmit)}
+                control=""
+                className="form-group p-2 w-100"
+              >
+                <div className="row justify-content-between">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="form__input border-top-0 border-left-0 border-right-0 border-bottom w-100 pt-2"
+                    placeholder="Name"
+                    {...register("name", {
+                      required: "Please enter your first name",
+                    })}
+                  />
+                  {errors.name && (
+                    <span className="text-danger">
+                      {errors.first_name.message}
+                    </span>
+                  )}
+                </div>
+                <div className="row justify-content-center mt-2">
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    className="form__input border-top-0 border-left-0 border-right-0 border-bottom w-100 pt-2"
+                    placeholder="Email Address"
+                    {...register("email", {
+                      required: "E-mail is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "Enter a valid email address",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <span className="text-danger">{errors.email.message}</span>
+                  )}
+                </div>
+                <div className="row justify-content-center mt-2">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="form__input border-top-0 border-left-0 border-right-0 border-bottom w-100 pt-2"
+                    placeholder="Password"
+                    {...register("password", {
+                      required: "Password is required.",
+                    })}
+                  />
+                  {errors.password && (
+                    <span className="text-danger">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </div>
+                <div className="row justify-content-center mt-4">
+                  <input
+                    type="submit"
+                    value="Submit"
+                    className="btn-primary rounded w-100 border-0 py-2"
+                  />
+                </div>
+              </form>
+            </div>
+            <div className="row justify-content-center">
+              <p>
+                Have an account? <Link to="/login">Log in here</Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="mb-3">
-          <label for="password1" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            onChange={(e) => setPass(e.target.value)}
-          ></input>
-        </div>
-        <div>
-        <label for="password2" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password2"
-            onChange={(e) => setPass(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="showPass"
-          ></input>
-          <label className="form-check-label" for="showPass">
-            view password
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary" onSubmit={(checkPass)}>                
-         Submit
-        </button>
-      </form>
+      </div>
     </div>
-    
   );
 };
 
